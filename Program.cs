@@ -53,3 +53,44 @@ Console.Write("Введите максимальное значение элем
 maxValue = int.Parse(Console.ReadLine()!);
 int[] array2 = RandomArray(length, minValue, maxValue);
 SumOfOddElements(array2);
+
+/*
+Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+[3 7 22 2 78] -> 76
+*/
+double[] DoubleRandomArray (int length, int minValue, int maxValue){
+    double[] array = new double[length];
+    for(int i = 0; i < array.Length; i++){
+        array[i] = new Random().Next(minValue,maxValue + 1);
+        Console.Write($"{array[i]} ");
+    }
+    Console.WriteLine();
+    return array;
+}
+
+void DifferenceBetweenMaxAndMin (double[] array){
+    double max = array[0];
+    for(int i = 0; i < array.Length; i++){
+        if(max < array[i]){
+            max = array[i];
+        }
+    }
+    Console.WriteLine($"Максимальный элемент массива: {max}");
+    double min = array[0];
+    for(int i = 0; i < array.Length; i++){
+        if(min > array[i]){
+            min = array[i];
+        }
+    }
+    Console.WriteLine($"Минимальный элемент массива: {min}");
+    Console.WriteLine($"Разница между максимальным и минимальным элементами: {max - min}");
+}
+
+Console.Write("Введите длину массива: ");
+length = int.Parse(Console.ReadLine()!);
+Console.Write("Введите минимальное значение элементов массива: ");
+minValue = int.Parse(Console.ReadLine()!);
+Console.Write("Введите максимальное значение элементов массива: ");
+maxValue = int.Parse(Console.ReadLine()!);
+double[] array3 = DoubleRandomArray(length, minValue, maxValue);
+DifferenceBetweenMaxAndMin(array3);
